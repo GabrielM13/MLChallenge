@@ -10,7 +10,9 @@ import Combine
 
 class SearchViewController: UIViewController {
     
-    private let headerView = CustomHeaderView()
+    internal let headerView = CustomHeaderView()
+    
+    var testViewModel: SearchViewModel { return viewModel }
     
     private let productsTableView: UITableView = {
         let tableView = UITableView()
@@ -137,6 +139,11 @@ class SearchViewController: UIViewController {
             loadingIndicator.stopAnimating()
         }
     }
+    
+    // Método acessível para testes
+      func getProductsTableView() -> UITableView {
+          return productsTableView
+      }
 }
 
 // MARK: - UITableViewDataSource
